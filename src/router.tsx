@@ -1,8 +1,6 @@
 import App from './App'
 import { createBrowserRouter } from 'react-router-dom'
-import Home from './routes/Home'
-import ComingSoon from './routes/ComingSoon'
-import NowPlaying from './routes/NowPlaying'
+import Movies from './components/Movies'
 
 export const router = createBrowserRouter([
   {
@@ -11,15 +9,33 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Home />,
-      },
-      {
-        path: 'coming-soon',
-        element: <ComingSoon />,
-      },
-      {
-        path: 'now-playing',
-        element: <NowPlaying />,
+        element: <Movies />,
+        children: [
+          {
+            path: 'movies/:movieId',
+            element: <Movies />,
+          },
+          {
+            path: 'coming-soon',
+            element: <Movies />,
+            children: [
+              {
+                path: 'movies/:movieId',
+                element: <Movies />,
+              },
+            ],
+          },
+          {
+            path: 'now-playing',
+            element: <Movies />,
+            children: [
+              {
+                path: 'movies/:movieId',
+                element: <Movies />,
+              },
+            ],
+          },
+        ],
       },
     ],
   },
