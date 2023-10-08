@@ -7,9 +7,9 @@ import {
   getPopular,
   makeImagePath,
 } from '../api'
-import { AnimatePresence, Variants, motion } from 'framer-motion'
-import { PathMatch, useLocation, useMatch, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { Variants, motion } from 'framer-motion'
+import { useLocation, useMatch, useNavigate } from 'react-router-dom'
+
 import DetailMovie from './DetailMovie'
 
 const Wrapper = styled.div`
